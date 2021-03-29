@@ -20,16 +20,17 @@ function setup() {
     landS = true;
     refPxLen = height / 5;
     txtStd = height / 24;
+    widthStd = width / 16;
     pxTotalCanvas = height / 2;
 
     rColorSlider.style('width', pxTotalCanvas + 'px');
-    rColorSlider.position(width / 2, txtStd * 4.3);
+    rColorSlider.position(width / 2 - widthStd, txtStd * 4.3);
     gColorSlider.style('width', pxTotalCanvas + 'px');
-    gColorSlider.position(width / 2, txtStd * 5.3);
+    gColorSlider.position(width / 2- widthStd, txtStd * 5.3);
     bColorSlider.style('width', pxTotalCanvas + 'px');
-    bColorSlider.position(width / 2, txtStd * 6.3);
+    bColorSlider.position(width / 2- widthStd, txtStd * 6.3);
     pxLenSlider.style('width', pxTotalCanvas + 'px');
-    pxLenSlider.position(width / 2, txtStd * 7.3);
+    pxLenSlider.position(width / 2- widthStd, txtStd * 7.3);
 
   } else if (height > 2.07 * width) {
     refPxLen = width / 5;
@@ -74,15 +75,15 @@ function draw() {
   pxLen = (pxLenSlider.value() * pxLenSlider.value()) / 4 * pxTotalCanvas;
   // pxLen = map(pxLenSlider.value(), 0, 2, 9, pxTotalCanvas);
   pxGap = pxLen * .01;
-  if (width > 1.125 * height) {
+  if (landS) {
     push();
     fill(255);
     textAlign(CENTER);
     textSize(txtStd * 1.4);
     text("Pixels", width / 2, txtStd * 1.75);
     textSize(txtStd * 0.8);
-    text("V1.0.2 Coded by: Joon Shakya", width / 2, txtStd * 3.2);
-    translate(width / 2 - txtStd * 4, txtStd * 5);
+    text("V1.0.3 Coded by: Joon Shakya", width / 2, txtStd * 3.2);
+    translate(width / 2 - txtStd * 4 - widthStd, txtStd * 5);
     textAlign(RIGHT);
     text("Red", 0, 0);
     text("Green", 0, txtStd * 1);
@@ -101,7 +102,7 @@ function draw() {
     pop();
 
     push();
-    translate(width / 2 - height / 3, pxTotalCanvas - txtStd * 2);
+    translate(width / 2 - height / 3 - widthStd, pxTotalCanvas - txtStd * 2);
     fill(0);
     rect(0, 0, refPxLen, refPxLen);
     showPixel(rColor, gColor, bColor, refPxLen, 5, 5);
@@ -114,7 +115,7 @@ function draw() {
     transX = (pxTotalCanvas - (pxLen * pxTotalN)) / 2;
     transY = (pxTotalCanvas - (pxLen * pxTotalN)) / 2;
     push();
-    translate(width * 3 / 4 - width / 4, pxTotalCanvas - txtStd * 2);
+    translate(width * 3 / 4 - width / 4 - widthStd, pxTotalCanvas - txtStd * 2);
     fill(0);
     rect(0, 0, pxTotalCanvas, pxTotalCanvas);
     translate(transX, transY);
