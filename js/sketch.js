@@ -14,7 +14,7 @@ function setup() {
   rColorSlider = createSlider(0, 100, 100, 1);
   gColorSlider = createSlider(0, 100, 100, 1);
   bColorSlider = createSlider(0, 100, 100, 1);
-  pxLenSlider = createSlider(0.39, 2, 1.5, .01);
+  pxLenSlider = createSlider(0.39, 2, 2, .01);
 
   if (width > 1.125 * height) {
     landS = true;
