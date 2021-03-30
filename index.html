@@ -68,6 +68,20 @@
 <script language="javascript" type="text/javascript" src="./js/sketch.js?re=1"></script>
 
 <body>
+  <script>
+    window.addEventListener('load', e => {
+        registerSW();
+        function registerSW() { 
+            if ('serviceWorker' in navigator) { 
+                try {
+                    navigator.serviceWorker.register("sw.js"); 
+                } catch (e) {
+                    alert('ServiceWorker registration failed. Sorry about that.'); 
+                }
+            }
+        }
+    });
+  </script>
 </body>
 
 </html>
